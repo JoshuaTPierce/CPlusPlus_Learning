@@ -1,0 +1,40 @@
+The program "rootBisection.cpp" contains an assertion:
+assert(a < b && f(a) <= 0 && f(b) > 0 &&
+"bisect: precondition violation");
+
+As with most programming constructs, there are three things that are useful to know about assertions:
+	syntax (what do we write?); semantics (what happens?); and pragmatics (when and why do we use assertions?).
+
+//Assert Syntax
+Syntax Any code unit that uses assertions must contain either the new-style directive: #include <cassert>
+	or the old-style directive: #include <assert.h>
+
+The assert statement itself has the form
+assert( (condition) );
+
+//Assert Semantics
+When the program executes, the hconditioni is evaluated.
+
+If the (condition) yields true, or anything equivalent to true, the assert statement has no effect.
+
+If the (condition) yields false, or anything equivalent to false (i.e., any kind of zero), the program is terminated with an error message.
+
+The precise form of the error message depends on the compiler. In general, it will contain the text of the hconditioni, the name of the file in which the assert statement occurs, and the line number
+of the statement within the file.
+
+//Assert Pragmatics
+Here is a reliable guide to the use of assertions:
+
+Think of assert(C) as saying “I (the programmer) believe that C should always be true at this point in the program”. Then the failure of an assertion implies that the programmer’s belief was mistaken, which further implies that there was something wrong with the reasoning and therefore something wrong with the program.
+
+Assertions are useful for expressing preconditions, postconditions, and invariants.
+
+A precondition is a condition that should be true on entry to a function. It imposes an obligation on the caller to ensure that the arguments passed to the function are appropriate.
+
+A postcondition is a condition that should be true when a function returns. It is a promise by the function to the caller that the function has done its job correctly.
+
+An invariant is a condition that should be true at certain, well-defined points in the program. For example, a loop invariant.
+
+A useful trick for assertions is to append “&& hstringi” to the condition, in which (string) describes what has gone wrong. This does not change the value of the condition, because a non-empty string
+is considered to be true, but it may improve the diagnostic issued by the compiler.
+

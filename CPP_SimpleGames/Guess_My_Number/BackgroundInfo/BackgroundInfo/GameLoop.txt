@@ -1,0 +1,37 @@
+Understanding the Game Loop
+
+The game loop is a generalized representation of the flow of events in a game.
+
+The core of the events repeats, which is why it’s called a loop. Although the
+implementation might be quite different from game to game, the fundamental
+structure is the same for almost all games across genres. Whether you’re talking
+about a simple space shooter or a complex role-playing game (RPG), you can
+usually break the game down into the same repeating components of the game
+loop. Figure 2.13 provides a visual representation of the game loop.
+Here’s an explanation of the parts of the game loop:
+
+ Setup. This often involves accepting initial settings or loading game
+assets, such as sound, music, and graphics. The player might also be pre-
+sented with the game backstory and his objectives.
+
+ Getting player input. Whether it comes from the keyboard, mouse, joy-
+stick, trackball, or some other device, input from the player is captured.
+
+ Updating game internals. The game logic and rules are applied to the
+game world, taking into account player input. This might take the shape
+of a physics system determining the interaction of objects or it might
+involve calculations of enemy AI, for example.
+
+ Updating the display. In the majority of games, this process is the most
+taxing on the computer hardware because it often involves drawing
+graphics. However, this process can be as simple as displaying a line of text.
+
+ Checking whether the game is over. If the game isn’t over (if the play-
+er’s character is still alive and the player hasn’t quit, for example), con-
+trol branches back to the getting player input stage. If the game is over,
+control falls through to the shutting down stage.
+
+ Shutting down. At this point, the game is over. The player is often given
+some final information, such as his score. The program frees any resources,
+if necessary, and exits.
+

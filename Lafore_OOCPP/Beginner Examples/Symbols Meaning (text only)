@@ -1,0 +1,104 @@
+# Keywords
+and   (logical and operator; all conditions must be met) 
+del   (deletes objects)
+from (for importing a specific variable, class, or function from a module)
+not   (logical not operator)
+while   (controlling the flow of a program)
+as   (for importing a module as a different alias (eg import pandas as pd))
+elif   (else if, between if and else)
+global   (access variables defined outside functions)
+or   (logical or operator, at least one condition must be met)
+with   (used in python for working with unmanaged resources;
+        the with statement clarifies code that would previous use try...finally
+        blocks to ensure that clean-up code is executed)
+assert   (used for debugging purposes)
+else   (final conditional in the if-elif-else decision structure)
+if   (used to determine which statements will be executed)
+pass   (does nothing)
+yield   (is used with generators)
+break   (interrupt the (loop) cycle if needed)
+except   (catches the exception and executes code)
+import   (import packages keyword)
+print   (print to console)
+class   (used to create new user-defined objects)
+exec   (executes python code dynamically)
+in   (used to test membership)
+raise   (create a user-defined exception)
+continue   (used to interrupt the current cycle without jumping out of the whole cycle. New cycle will begin.)
+finally   (is always executed in the end, used to clean up program resources)
+is   (tests for object identity)
+return   (exits the function and returns a value)
+def   (function definition key word)
+for   (iterate over items of a collection in the order that they appear)
+lambda   (creates a new anonymous function)
+try   (specifies exception handlers)
+
+# Data Types
+Boolean (True/False)
+Strings (strings)
+Numbers (int, long (long integer), complex (J, contains integer in range 0-255))
+Floats (floating point real values)
+Lists [in brackets, zero-indexed, contain multiple values]
+Tuples (like a list and manipulated in similar ways but fixed in value (immutable))
+
+# String Escape Sequences
+\\ (prints backslash)
+\' (prints single quotes)
+\" (prints double quotes)
+\a (ASCII bell makes the ringing bell alert sound)
+\b  (ASCII backslace, removes previous character)
+\f (ASCII formfeed (new paragraph + tabbed forward))
+\n  (ASCII linefeed (starts new line))
+\r  (ASCII carriage return. Moves all characters aver CR to the beginning of the
+    new line while overriding same number of characters moved)
+\t  (prints tab)
+
+# String Formats
+%d (decimal)
+%i (integer)
+%o (octal format (base 8))
+%u (unsigned decimal)
+%x (hex format (base 16, lower-case letters for digits above 9))
+%X (hex format (base sixteen, upper case digits above 9))
+%e (exponent)
+%E (Exponent)
+%f (fixed point)
+%F (Fixed Point)
+%g (General Format)
+%G (General Format, switches to E if number gets too large)
+%c (character)
+%r (repr, like str but includes quotes, all special characters are escaped)
+%s (string format)
+%% (percentage (multiples number by 100 and displays in fixed (f) format))
+
+# Operators
++ plus 
+- minus
+* multiply
+** exponentiate
+/ divide
+// floor division (lowest quotient)
+% Modulo
+< less than
+> greater than
+<= less than or equal to
+>= greater than or equal to
+== equals
+!= does not equal 
+<> (if values of two operands are not equal, <> becomes true)
+( ) parenthesis
+[ ] brackets (can be used as parenthesis, also as sets/vectors/lists)
+{ } curly braces
+@
+, comma (common use)
+: colon, used in function definitions, control structures
+. dot, used in function calls
+= equals, FOR VARIABLE ASSIGNMENTS, NOT THE SAME AS ==
+;
++= plus and (i.e., c += a == c = c+1)
+-= minus and
+*= multiple and
+/= divide and
+//= floor divide and
+%= modulus and
+**= exponentiate and 

@@ -1,0 +1,13 @@
+Summarizing Constants and Pointers
+
+I’ve presented a lot of information on constants and pointers, so I want to provide a summary to help crystallize the new concepts. Here are three examples of the different ways in which you can use the keyword const when you are declaring pointers:
+
+n int* const p = &i;
+n const int* p;
+n const int* const p = &I;
+
+The first example declares and initializes a constant pointer. A constant pointer can only point to the object to which it was initialized to point. The value—the memory address—stored in the pointer itself is constant and can’t change. A constant pointer can only point to a non-constant value; it can’t point to a constant.
+
+The second example declares a pointer to a constant. A pointer to a constant can’t be used to change the value to which it points. A pointer to a constant can point to different objects during the life of a program. A pointer to a constant can point to a constant or non-constant value.
+
+The third example declares a constant pointer to a constant. A constant pointer to a constant can only point to the value to which it was initialized to point. In addition, it can’t be used to change the value to which it points. A constant pointer to a constant can be initialized to point to a constant or a non-constant value.

@@ -1,0 +1,21 @@
+The C++ library defines several classes that it uses to report problems encountered in
+the functions in the standard library. These exception classes are also intended to be
+used in the programs we write. These classes are defined in four headers:
+    • The exception header defines the most general kind of exception class named
+exception. It communicates only that an exception occurred but provides no
+additional information.
+    • The stdexcept header defines several general-purpose exception classes,
+which are listed:
+
+exception (the most general kind of problems)
+runtime_error(problem that can be detected only at runtime)
+range_error (run-time error, result generated outside the range of values that are meaningful)
+overflow_error (runtime error: computation overflowed (infinite recursion, e.g.))
+underflow_error (runtime error: computation underflowed)
+logic_error (error in the logic of the program)
+domain_error (logic error: argument for which no result exists)
+invalid_argument (logic error: inappropriate argument)
+length_error (logic error: attempt to create an object larger than the maximum size for that type)
+out_of_range (logic error: used a value outside the valid range)
+
+

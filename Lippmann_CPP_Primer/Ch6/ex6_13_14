@@ -1,0 +1,26 @@
+//Exercise 6.13: Assuming T is the name of a type, explain the difference
+//between a function declared as void f(T) and void f(T&).
+
+void f(T) will pass the argument by value, which means in the function f, a copy of T will be made.
+
+void f(T&) will pass the argument by reference, which means in the function f, the same variable defined in the caller is used.
+
+
+//Exercise 6.14: Give an example of when a parameter should be a reference
+//type. Give an example of when a parameter should not be a reference.
+
+Reference parameters
+
+Functions must use reference parameters to operate on objects of a type that cannot be copied.
+
+Functions prefer to use reference parameters to operate on objects of large class types or large containers.
+
+Functions should use reference parameters to return additional information via the reference parameters.
+
+void printStr(std::ostream &os, const std::string &str, bool &stat) { if (os << str) stat = true; else stat = false; }
+
+Nonreference parameters
+
+Functions should use nonreference parameters when the value of the parameters may changed but should not affect the objects passed to the function.
+
+int sum(int n) { int sum = 0; while (n > 0) sum += n--; return sum; }

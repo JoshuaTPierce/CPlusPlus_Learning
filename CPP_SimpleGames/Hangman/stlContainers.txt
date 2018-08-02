@@ -1,0 +1,24 @@
+Container      Type            Description
+----------------------------------------
+deque			Sequential		Double-eneded queue
+
+list			Sequential		Linear List
+
+map				Associative		Collection of key/value pairs in which 									each key is assocaited with exactly 
+									one value.
+
+multimap		Associative		Collection of key/value pairs in which 									each key may be assocaited with more 
+									than one value.
+
+multiset		Associative		Collection in which each element is not
+								not necessarily unique.
+
+priority_queue  Adaptor			Priority queue
+
+queue           Adaptor			Queue 
+
+set 			Associative		Collection where each element is unique
+
+stack			Adaptor			Stack
+
+vector			Sequential		Dynamic array
