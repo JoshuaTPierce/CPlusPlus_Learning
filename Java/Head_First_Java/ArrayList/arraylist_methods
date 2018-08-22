@@ -1,0 +1,58 @@
+import java.ArrayList;
+
+/*******************************************************
+Most commonly used ArrayList methods
+********************************************************/
+
+add(Object elem);  
+	//adds the object parameter to the list
+
+remove(int index); 
+	//removes the object at the index parameter
+
+remove(Object elem); 
+	//removes this object (iff its in the arraylist)
+
+contains(Object elem); 
+	//returns 'true' if there's a match for the object parameterr
+
+isEmpty(); 
+	//returns 'true' if the list has no elements
+
+indexOf(Object elem);
+	//returns either the index of the object parameter, or -1
+
+size();
+	//returns the number of elements currently in the list
+
+get(int index);
+	//returns the object currently at the index parameter
+
+/////////////////////////////////////////////////////////////////
+Examples:
+
+//Make an arraylist
+ArrayList<Egg> myList = new ArrayList<Egg>();
+
+//Add an Egg Object to the List
+Egg s = new Egg();
+myList.add(s);
+
+//Add Another Egg Object
+Egg b = new Egg();
+myList.add(b);
+
+//Print the Length
+System.out.println("The arraylist has" + myList.size() + " elements.");
+
+//Find out if it Contains Something
+boolean isIn = myList.contains(s);
+
+//Find out the Index of an Object
+int idx = myList.indexOf(b);
+
+//Find out if the Array is Empty
+boolean empty - myList.isEmpty();
+
+//Remove Something from the List
+myList.remove(s);
