@@ -1,0 +1,56 @@
+Find out all of the printf escape codes and format sequences. 
+Escape codes are \n or \t that let you print a newline or tab 
+(respectively). Format sequences are the %s or %d that let you 
+print a string or a integer.
+--------------------------------------------------------------
+The general format for the printf function is
+printf(control string, other arguments);
+
+When the program is executed, the control string will be 
+displayed exactly as it appears in the program with two exceptions. 
+First, the computer will replace each conversion specification 
+with a value given in the other arguments part of the printf 
+statement. Second, escape sequences will be replaced with special 
+non-printing and hard-to-print characters. It is important to 
+remember that both conversion specifications and escape sequences 
+appear inside the control string!
+
+The first type of replacement, conversion specifications, are 
+"fill-in the blank" style placeholders in the control string. 
+A conversion specification begins with a % and ends with a 
+conversion character. The kind of conversion character you choose 
+is related to the type of what you would like to display on the 
+screen. The different conversion characters are listed in the 
+table below. 
+
+Conv. Char.     How Arg. is Printed
+c	            as a character
+d	            as a decimal integer
+e	            as a floating point number; example 7.123000e+00
+f	            as a floating point number; example 7.123000
+g	            in the e-format or f-format, whichever is shorter
+s	            as a string
+
+Special Character    Escape Sequence
+alert (beep)	       \a
+backslash	            \\
+backspace	            \b
+carriage return	        \r
+double quote	        \"
+formfeed	            \f
+horizontal tab	        \t
+newline	                \n
+null character	        \0
+single quote	        \'
+vertical tab	        \v
+question mark	        \?
+
+Adding the escape sequences to the control string will lead to a 
+different result. Consider the original code with a different 
+control string in the printf statement:
+
+printf("My\tfavorite\nnumbers are \t%d and \t%f.\n",i,x);
+The fact that the escape sequences and some of the words in the control string are joined together (like \t and the word favorite) may look awkward, but this produces the same text with added horizontal tabs and newlines:
+
+My      favorite
+numbers are     2 and   3.140000.

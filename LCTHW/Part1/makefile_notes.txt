@@ -1,0 +1,253 @@
+Extra Credit:
+
+"Read UNIX documentation man cc (c compiler) to find out more information on what the flags -wall and -g do.
+
+-g: Produce debugging information in the operating system's native format (stabs, COFF, XCOFF, or DWARF).
+GDB (GNU debugger) can work with this debugging information.
+
+On most systems that use stabs format, `-g' enables use of extra
+	      debugging information that only GDB can use; this extra informa-
+	      tion makes debugging work better in GDB but will	probably  make
+	      other  debuggers	crash  or  refuse to read the program.	If you
+	      want to control for certain whether to generate the extra infor-
+	      mation,	use   `-gstabs+',  `-gstabs',  `-gxcoff+',  `-gxcoff',
+	      `-gdwarf+', or `-gdwarf' (see below).
+
+	      Unlike most other C compilers, GNU CC allows  you  to  use  `-g'
+	      with  `-O'.  The shortcuts taken by optimized code may occasion-
+	      ally produce surprising results: some variables you declared may
+	      not exist at all; flow of control may briefly move where you did
+	      not expect it; some statements may not be executed because  they
+	      compute  constant  results or their values were already at hand;
+	      some statements may execute in  different  places  because  they
+	      were moved out of loops.
+
+	      Nevertheless it proves possible to debug optimized output.  This
+	      makes it reasonable to use the optimizer for programs that might
+	      have bugs.
+
+       The  following options are useful when GNU CC is generated with the ca-
+       pability for more than one debugging format.
+
+       -ggdb  Produce debugging information in the native format (if  that  is
+	      supported), including GDB extensions if at all possible.
+
+       -gstabs
+	      Produce  debugging  information in stabs format (if that is sup-
+	      ported), without GDB extensions.	This is the format used by DBX
+	      on most BSD systems.
+
+       -gstabs+
+	      Produce  debugging  information in stabs format (if that is sup-
+	      ported), using GNU extensions understood only by the GNU	debug-
+	      ger  (GDB).  The use of these extensions is likely to make other
+	      debuggers crash or refuse to read the program.
+
+       -gcoff Produce debugging information in COFF format (if	that  is  sup-
+	      ported).	 This  is the format used by SDB on most System V sys-
+	      tems prior to System V Release 4.
+
+       -gxcoff
+	      Produce debugging information in XCOFF format (if that  is  sup-
+	      ported).	 This  is  the	format used by the DBX debugger on IBM
+	      RS/6000 systems.
+
+       -gxcoff+
+	      Produce debugging information in XCOFF format (if that  is  sup-
+	      ported),	using GNU extensions understood only by the GNU debug-
+	      ger (GDB).  The use of these extensions is likely to make  other
+	      debuggers crash or refuse to read the program.
+
+       -gdwarf
+	      Produce  debugging  information in DWARF format (if that is sup-
+	      ported).	This is the format used by SDB on most	System	V  Re-
+	      lease 4 systems.
+
+       -gdwarf+
+	      Produce  debugging  information in DWARF format (if that is sup-
+	      ported), using GNU extensions understood only by the GNU	debug-
+	      ger  (GDB).  The use of these extensions is likely to make other
+	      debuggers crash or refuse to read the program.
+
+-wall: COMBINES ALL OF THE FOLLOWING -W OPTIONS. Some -w options to do apply with -wall.
+
+Warnings  are  diagnostic  messages that report constructions which are
+       not inherently erroneous but which are risky or suggest there may  have
+       been an error.
+
+       These  options control the amount and kinds of warnings produced by GNU
+       CC:
+
+       -fsyntax-only
+	      Check the code for syntax errors, but don't emit any output.
+
+       -w     Inhibit all warning messages.
+
+       -Wno-import
+	      Inhibit warning messages about the use of #import.
+
+       -pedantic
+	      Issue all the warnings demanded by strict ANSI standard  C;  re-
+	      ject all programs that use forbidden extensions.
+
+	      Valid  ANSI  standard C programs should compile properly with or
+	      without this option (though a rare few  will  require  `-ansi').
+	      However,	without this option, certain GNU extensions and tradi-
+	      tional C features are supported as well.	With this option, they
+	      are  rejected.  There is no reason to use this option; it exists
+	      only to satisfy pedants.
+
+	      `-pedantic' does not cause warning messages for use of  the  al-
+	      ternate  keywords whose names begin and end with `__'.  Pedantic
+	      warnings are also disabled in the expression that follows  __ex-
+	      tension__.   However,  only system header files should use these
+	      escape routes; application programs should avoid them.
+
+       -pedantic-errors
+	      Like `-pedantic', except that errors are	produced  rather  than
+	      warnings.
+
+       -W     Print extra warning messages for these events:
+
+	  o   A  nonvolatile  automatic variable might be changed by a call to
+	      longjmp.	These warnings are possible only in optimizing	compi-
+	      lation.
+
+	      The  compiler  sees  only  the  calls to setjmp.	It cannot know
+	      where longjmp will be called; in fact, a	signal	handler  could
+	      call  it	at  any point in the code.  As a result, you may get a
+	      warning even when there is in fact no  problem  because  longjmp
+	      cannot  in fact be called at the place which would cause a prob-
+	      lem.
+
+	  o   A function can return either with or without a value.   (Falling
+	      off the end of the function body is considered returning without
+	      a value.)  For example, this function would evoke such  a  warn-
+	      ing:
+
+	      foo (a)
+	      {
+		if (a > 0)
+		  return a;
+	      }
+
+	      Spurious warnings can occur because GNU CC does not realize that
+	      certain functions (including abort and longjmp) will  never  re-
+	      turn.
+
+	  o   An expression-statement or the left-hand side of a comma expres-
+	      sion contains no side effects.  To suppress  the	warning,  cast
+	      the  unused expression to void.  For example, an expression such
+	      as `x[i,j]' will cause a warning, but `x[(void)i,j]' will not.
+
+	  o   An unsigned value is compared against zero with `>' or `<='.
+
+       -Wimplicit-int
+	      Warn whenever a declaration does not specify a type.
+
+       -Wimplicit-function-declaration
+	      Warn whenever a function is used before being declared.
+
+       -Wimplicit
+	      Same as -Wimplicit-int and -Wimplicit-function-declaration.
+
+       -Wmain Warn if the main function is declared or defined with  a	suspi-
+	      cious  type.  Typically, it is a function with external linkage,
+	      returning int, and taking zero or two arguments.
+
+       -Wreturn-type
+	      Warn whenever a function is defined with a return-type that  de-
+	      faults to int.  Also warn about any return statement with no re-
+	      turn-value in a function whose return-type is not void.
+
+       -Wunused
+	      Warn whenever a local variable is unused aside from its declara-
+	      tion,  whenever a function is declared static but never defined,
+	      and whenever a statement computes a result  that	is  explicitly
+	      not used.
+
+       -Wswitch
+	      Warn  whenever  a switch statement has an index of enumeral type
+	      and lacks a case for one or more of the named codes of that enu-
+	      meration.   (The presence of a default label prevents this warn-
+	      ing.)  case labels outside the enumeration  range  also  provoke
+	      warnings when this option is used.
+
+       -Wcomment
+	      Warn  whenever  a  comment-start sequence `/*' appears in a com-
+	      ment.
+
+       -Wtrigraphs
+	      Warn if any trigraphs are encountered  (assuming	they  are  en-
+	      abled).
+
+       -Wformat
+	      Check calls to printf and scanf, etc., to make sure that the ar-
+	      guments supplied have types appropriate  to  the	format	string
+	      specified.
+
+       -Wchar-subscripts
+	      Warn  if	an  array  subscript  has type char.  This is a common
+	      cause of error, as programmers often forget that	this  type  is
+	      signed on some machines.
+
+       -Wuninitialized
+	      An automatic variable is used without first being initialized.
+
+	      These  warnings are possible only in optimizing compilation, be-
+	      cause they require data flow information that is	computed  only
+	      when  optimizing.   If  you don't specify `-O', you simply won't
+	      get these warnings.
+
+	      These warnings occur only for variables that are candidates  for
+	      register	allocation.   Therefore, they do not occur for a vari-
+	      able that is declared volatile, or whose address	is  taken,  or
+	      whose  size is other than 1, 2, 4 or 8 bytes.  Also, they do not
+	      occur for structures, unions or arrays, even when  they  are  in
+	      registers.
+
+	      Note  that there may be no warning about a variable that is used
+	      only to compute a value that itself is never used, because  such
+	      computations  may  be  deleted  by data flow analysis before the
+	      warnings are printed.
+
+	      These warnings are made optional because GNU  CC	is  not  smart
+	      enough  to see all the reasons why the code might be correct de-
+	      spite appearing to have an error.  Here is one  example  of  how
+	      this can happen:
+
+	      {
+		int x;
+		switch (y)
+		  {
+		  case 1: x = 1;
+		    break;
+		  case 2: x = 4;
+		    break;
+		  case 3: x = 5;
+		  }
+		foo (x);
+	      }
+
+	      If the value of y is always 1, 2 or 3, then x is always initial-
+	      ized, but GNU CC doesn't know  this.   Here  is  another	common
+	      case:
+
+	      {
+		int save_y;
+		if (change_y) save_y = y, y = new_y;
+		...
+		if (change_y) y = save_y;
+	      }
+
+	      This has no bug because save_y is used only if it is set.
+
+	      Some spurious warnings can be avoided if you declare as volatile
+	      all the functions you use that never return.
+
+       -Wparentheses
+	      Warn if parentheses are omitted in certain contexts.
+
+       -Wtemplate-debugging
+	      When using templates in a C++ program, warn if debugging is  not
+	      yet fully available (C++ only).

@@ -1,0 +1,41 @@
+type *ptr
+"a pointer of type named ptr"
+
+*ptr
+"the value of whatever ptr is pointed at"
+
+*(ptr + i)
+"the value of (whatever ptr is pointed at plus i)"
+
+&thing
+"the address of thing"
+
+type *ptr = &thing
+"a pointer of type named ptr set to the address of thing"
+
+ptr++
+"increment where ptr points"
+
+---------------Practical Pointer Usage
+There are four primary useful things you do with pointers in C code:
+Ask the OS for a chunk of memory and use a pointer to work
+with it. This includes strings and something you haven't seen
+yet, structs.
+
+Passing large blocks of memory (like large structs) to functions
+with a pointer so you don't have to pass the whole thing to them.
+
+Taking the address of a function so you can use it as a dynamic callback.
+
+Complex scanning of chunks of memory such as converting
+bytes off a network socket into data structures or parsing files.
+
+For nearly everything else you see people use pointers, they should be
+using arrays. In the early days of C programming people used pointers to
+speed up their programs because the compilers were really bad at
+optimizing array usage. These days the syntax to access an array vs. a
+pointer are translated into the same machine code and optimized the
+same, so it's not as necessary. Instead, you go with arrays every time you
+can, and then only use pointers as a performance optimization if you
+absolutely have to.
+
